@@ -272,7 +272,7 @@
 		 */
 		public function include_files( $file_array ) {
 			$return = FS_CURL_SUCCESS;
-			foreach ( $array as $key => $val ) {
+			foreach ($file_array as $type => $file) {
 				$inc = @include_once( $file );
 				if ( ! $inc ) {
 					$comment = sprintf(
