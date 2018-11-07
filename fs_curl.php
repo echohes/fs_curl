@@ -123,7 +123,7 @@
 		 * @return void
 		 */
 		private function generate_request_array() {
-			while ( list( $req_key, $req_val ) = each( $_REQUEST ) ) {
+			foreach ($_REQUEST as $req_key => $req_val) {
 				if ( ! defined( 'FS_CURL_DEBUG' ) && $req_key == 'fs_curl_debug' ) {
 					define( 'FS_CURL_DEBUG', $req_val );
 				}
@@ -272,7 +272,7 @@
 		 */
 		public function include_files( $file_array ) {
 			$return = FS_CURL_SUCCESS;
-			while ( list( $type, $file ) = each( $file_array ) ) {
+			foreach ( $array as $key => $val ) {
 				$inc = @include_once( $file );
 				if ( ! $inc ) {
 					$comment = sprintf(
