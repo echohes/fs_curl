@@ -13,27 +13,8 @@ This README.  created by Balaji BHR .... balajibhr@gmail.com    IRC : ramindia
 REQUIREMENTS:
 
 
-apt-get install mysql-server libmysqlclient15-dev
+apt install apache2 php7.0 libapache2-mod-php php-xml curl php7.0-mysql
 
-apt-get install php5 php5-common libapache2-mod-php5 php5-gd php5-dev curl libcurl3 libcurl3-dev php5-curl
-
-apt-get install php-pear
-
-pecl install pdo
-
-pecl install pdo_mysql
-
-updatedb
-
-
-
-
-vi /etc/php5/apache2/php.ini
-
-add below lines
-
-extension=pdo.so
-extension=pdo_mysql.so
 
 Copying the Source intralanman to web server root directory
 -----------------------------------------------------------
@@ -52,15 +33,11 @@ populate the tables in to freeswitch database
 
 mysql -u root -p < /var/www/fs_curl/sql/mysql-5.0-with-samples.sql
 
-
 cd /var/www/fs_curl
-
 
 vi global_defines.php
 
 change the below settings according to your setup
-
-
 
 /**
  * Defines the default dsn for the FS_PDO class
