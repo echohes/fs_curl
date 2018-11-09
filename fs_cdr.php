@@ -58,12 +58,7 @@ class fs_cdr extends fs_curl {
     /**
      * This is where we instantiate our parent and set up our CDR object
      */
-
-	public function fs_cdr()	{
-        	self::__construct();
-    }
-
-    public function __construct() {
+    public function fs_cdr() {
         $this->fs_curl();
         $this->cdr = stripslashes($this->request['cdr']);
         $this->xml_cdr = new SimpleXMLElement($this->cdr);

@@ -51,14 +51,7 @@
 		 * in child classes
 		 * @return void
 		 */
-		
-		public function fs_curl()
-    		{
-       		 	self::__construct();
-    		}
-	
-		public function __construct() {
-		//public function fs_curl() {
+		public function fs_curl() {
 			openlog( 'fs_curl', LOG_NDELAY | LOG_PID, LOG_USER );
 			header( 'Content-Type: text/xml' );
 			$this->generate_request_array();
@@ -123,7 +116,8 @@
 		 * @return void
 		 */
 		private function generate_request_array() {
-			foreach ($_REQUEST as $req_key => $req_val) {
+		//while ( list( $req_key, $req_val ) = each( $_REQUEST ) ) {
+		foreach ($_REQUEST as $req_key => $req_val) {
 				if ( ! defined( 'FS_CURL_DEBUG' ) && $req_key == 'fs_curl_debug' ) {
 					define( 'FS_CURL_DEBUG', $req_val );
 				}
@@ -272,6 +266,7 @@
 		 */
 		public function include_files( $file_array ) {
 			$return = FS_CURL_SUCCESS;
+//			while ( list( $type, $file ) = each( $file_array ) ) {
 			foreach ($file_array as $type => $file) {
 				$inc = @include_once( $file );
 				if ( ! $inc ) {

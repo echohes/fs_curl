@@ -13,11 +13,12 @@ if (basename($_SERVER['PHP_SELF']) == basename(__FILE__)) {
 /**
  * Defines the default dsn for the FS_PDO class
  */
-define('DEFAULT_DSN', 'pgsql:dbname=freeswitch;host=127.0.0.1');
+//define('DEFAULT_DSN', 'mysqli:dbname=freeswitch;host=127.0.0.1');
+define('DEFAULT_DSN', 'mysql:dbname=freeswitch;host=localhost');
 /**
  * Defines the default dsn login for the PDO class
  */
-define('DEFAULT_DSN_LOGIN', 'freeswitch');
+define('DEFAULT_DSN_LOGIN', 'fs');
 /**
  * Defines the default dsn password for the PDOclass
  */
