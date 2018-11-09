@@ -13,7 +13,8 @@ This README.  created by Balaji BHR .... balajibhr@gmail.com    IRC : ramindia
 REQUIREMENTS:
 
 
-apt install apache2 php7.0 libapache2-mod-php php-xml curl php7.0-mysql
+### apt install apache2 php7.0 libapache2-mod-php php-xml curl php7.0-mysql
+
 
 
 Copying the Source intralanman to web server root directory
