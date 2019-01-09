@@ -22,6 +22,34 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `distributor_lists`
+--
+
+CREATE TABLE IF NOT EXISTS `distributor_lists` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `distributor_name` varchar(128) NOT NULL
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `distributor_nodes`
+--
+
+CREATE TABLE IF NOT EXISTS `distributor_nodes` (
+  `id` int(10) unsigned NOT NULL auto_increment,
+  `name` varchar(45) NOT NULL,
+  `weight` varchar(16) NOT NULL,
+  `list_id` int(10) unsigned NOT NULL,
+  PRIMARY KEY  (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4;
+
+
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `acl_lists`
 --
 
