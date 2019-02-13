@@ -2,33 +2,34 @@ fs_curl
 =======
 
 FreeSWITCH mod_xml_curl base configuration classes
+
 Users and dialplan use Mysql Database using XML_curl using "intralanman" contrib
 --------------------------------------------------------------------------------
 
 REQUIREMENTS:
 
-### apt install apache2 php7.0 libapache2-mod-php php-xml curl php7.0-mysql
+		apt install apache2 php7.0 libapache2-mod-php php-xml curl php7.0-mysql
 
 Copying the Source intralanman to web server root directory
 -----------------------------------------------------------
 
-/var/www
+		/var/www
 
 
 Creating the database in Mysql
 ------------------------------
 
-create database "freeswitch"
+		create database "freeswitch"
 
 
 populate the tables in to freeswitch database
 ---------------------------------------------
 
-mysql -u root -p < /var/www/fs_curl/sql/mysql-5.0-with-samples.sql
+		mysql -u root -p < /var/www/fs_curl/sql/mysql-5.0-with-samples.sql
 
-cd /var/www/fs_curl
+		cd /var/www/fs_curl
 
-vi global_defines.php
+		vi global_defines.php
 
 change the below settings according to your setup
 
@@ -51,21 +52,20 @@ define('DEFAULT_DSN_PASSWORD', 'password');
 Configuring the XML_CURL Module
 -------------------------------
 
-cd /usr/local/freeswitch/conf/autoload_configs
+		cd /usr/local/freeswitch/conf/autoload_configs
 
-vi modules.conf.xml
+		vi modules.conf.xml
 
-add line     <load module="mod_xml_curl"/>
+		add line     <load module="mod_xml_curl"/>
 
 Configuring the xml_curl to take users and dialplan information from Database
 -----------------------------------------------------------------------------
 
+		vi xml_curl.conf.xml
 
-vi xml_curl.conf.xml
+		add this line "<param name="gateway-url" value="http://localhost/fs_curl/index.php bindings="dialplan|directory"/>
 
-add this line "<param name="gateway-url" value="http://localhost/fs_curl/index.php bindings="dialplan|directory"/>
-
-example looks like this
+		example looks like this
 
 
 <bindings>
@@ -80,11 +80,11 @@ example looks like this
 Restaring the Services
 ----------------------
 
-stop freeswitch
-start freeswitch
-restart apache
+		stop freeswitch
+		start freeswitch
+		restart apache
 
 
 TESTING
 -------
-http://ipaddress/fs_curl/index.php?section=directory&user=1000&domain=domain.com
+		curl http://ipaddress/fs_curl/index.php?section=directory&user=1000&domain=domain.com
