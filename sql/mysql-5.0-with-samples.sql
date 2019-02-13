@@ -46,6 +46,22 @@ CREATE TABLE IF NOT EXISTS `distributor_nodes` (
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4;
 
 
+--
+-- Table structure for table `translate.conf`
+--
+
+CREATE TABLE `translate_profile` (
+  `id` int(11) NOT NULL,
+  `name` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
+CREATE TABLE `translate_rules` (
+  `id` int(11) NOT NULL,
+  `profile_id` int(11) NOT NULL,
+  `rule` varchar(256) NOT NULL,
+  `replace` varchar(256) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+
 
 -- --------------------------------------------------------
 
