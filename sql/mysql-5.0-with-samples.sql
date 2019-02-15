@@ -51,16 +51,18 @@ CREATE TABLE IF NOT EXISTS `distributor_nodes` (
 --
 
 CREATE TABLE `translate_profile` (
-  `id` int(11) NOT NULL,
-  `name` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+  `id` int(11) unsigned NOT NULL auto_increment,
+  `name` varchar(256) NOT NULL,
+   PRIMARY KEY  (`id`)
+);
 
 CREATE TABLE `translate_rules` (
-  `id` int(11) NOT NULL,
+  `id` int(11) unsigned NOT NULL auto_increment,
   `profile_id` int(11) NOT NULL,
   `rule` varchar(256) NOT NULL,
-  `replace` varchar(256) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1
+  `replace` varchar(256) NOT NULL,
+  PRIMARY KEY  (`id`)
+);
 
 
 -- --------------------------------------------------------
